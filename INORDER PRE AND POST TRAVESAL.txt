@@ -1,0 +1,65 @@
+INORDER ,PREORDER AND POSTORDER TRAVESAL
+
+PRE ORDER- ROOT LEFT RIGHT
+INORDER- LEFT ROOT RIGHT
+POST ORDER- RIGHT ROOT LEFT
+
+
+
+C++ FOR PREORDER
+
+vector <int> preorder(Node* root)
+{
+  // Your code 
+  vector<int>ans;
+  if(root!=NULL)
+  {
+      ans.push_back(root->data);
+      vector<int> left = preorder(root->left);
+      ans.insert(ans.end(), left.begin(), left.end());
+      
+      vector<int> right = preorder(root->right);
+      ans.insert(ans.end(), right.begin(), right.end());
+  }
+  return ans;
+}
+
+
+
+C++. FOR POSTORDER
+
+
+vector <int> postorder(Node* root)
+{
+  // Your code 
+  vector<int>ans;
+  if(root!=NULL)
+  {
+       vector<int> left = preorder(root->left);
+      ans.insert(ans.end(), left.begin(), left.end());
+      
+      vector<int> right = preorder(root->right);
+      ans.insert(ans.end(), right.begin(), right.end());
+      ans.push_back(root->data);
+  }
+  return ans;
+}
+
+C++ FOR INORDER
+
+
+class Solution {
+  public:
+    // Function to return a list containing the inorder traversal of the tree.
+    vector<int> inOrder(Node* root) {
+        vector<int> ans;
+    if (root != NULL) {
+        vector<int> left = inOrder(root->left);
+        ans.insert(ans.end(), left.begin(), left.end());
+        ans.push_back(root->data);
+        vector<int> right = inOrder(root->right);
+        ans.insert(ans.end(), right.begin(), right.end());
+    }
+    return ans;
+}
+};
