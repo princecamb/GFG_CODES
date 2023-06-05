@@ -1,0 +1,23 @@
+Remove all duplicates from a given string
+
+
+
+class Solution{
+public:
+	string removeDuplicates(string str) {
+	map<char,int>m;
+	string result="";
+	for(int i=0;i<str.length();i++)
+	{
+	    if(m[str[i]]==0)
+	    {
+	        m[str[i]]=1;
+	        result=result+str[i];
+	        
+	    }
+
+	}
+	return result;
+	
+	}
+};
